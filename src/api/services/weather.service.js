@@ -15,7 +15,7 @@ const getWeatherData = (locations, type) =>
 			(value) =>
 				new Promise((resolve, reject) => {
 					const query = `${type}=${value}`;
-					const url = `${constant.WEATHER_URI}?${query}&appid=${constant.WEATHER_API_KEY}`;
+					const url = `${constant.WEATHER_URI}/weather?${query}&appid=${constant.WEATHER_API_KEY}`;
 					return request.get(url, (err, data) => {
 						if (err) return reject(err);
 						return resolve(JSON.parse(data.body));

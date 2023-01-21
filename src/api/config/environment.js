@@ -18,6 +18,5 @@ module.exports = (function () {
 		API_URI: process.env.API_URI,
 		WEATHER_API_KEY: process.env.WEATHER_API_KEY,
 		WEATHER_URI: process.env.WEATHER_URI,
-		FORECAST_URI: process.env.FORECAST_URI,
 	};
 })();
