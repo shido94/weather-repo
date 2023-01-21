@@ -7,6 +7,7 @@ const cityQuery = {
 			'any.required': `Enter a valid cities name or code`,
 		}),
 		type: Joi.string().valid('code', 'name'),
+		limit: Joi.string(),
 	}),
 };
 
