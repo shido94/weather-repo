@@ -4,10 +4,7 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const compression = require('compression');
 const uuid = require('uuid').v4;
-const { constant, logger, swagger } = require('../utils');
-// const constant = require('../utils/constant');
-// const logger = require('../utils/logger');
-// const swagger = require('../utils/swagger');
+const { logger, swagger } = require('../utils');
 const path = require('path');
 const methodOverRide = require('method-override');
 const apiError = require('../utils/apiError');
@@ -32,12 +29,10 @@ app.use(function (req, res, next) {
 /**
  * Set Globals
  */
-global.config = constant.CONFIG;
 global.logger = logger;
 global.logger = logger;
 
 app.set('view engine', 'ejs');
-app.set('config', config);
 app.set('debug', require('debug')('app'));
 app.set('trust proxy', 1); // trust first proxy
 

@@ -1,3 +1,3 @@
-const userController = require('./user.controller');
+const weatherController = require('./weather.controller');
 
-module.exports = { userController };
+module.exports = { weatherController };

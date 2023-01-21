@@ -1,3 +1,3 @@
-const userValidation = require('./user.validation');
+const weatherValidation = require('./weather.validation');
 
-module.exports = { userValidation };
+module.exports = { weatherValidation };

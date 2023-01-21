@@ -36,11 +36,11 @@ getFullPaths(filesName);
 const options = {
 	swaggerDefinition: {
 		info: {
-			title: 'BrokerToBroker',
+			title: 'WeatherApp',
 			version: '1.0.0',
-			description: 'BrokerToBroker,REST API with swagger doc',
+			description: 'WeatherApp,REST API with swagger doc',
 			contact: {
-				email: 'rupesh.yadav@appinventiv.com',
+				email: 'rupeshyadav94.ryy@gmail.com',
 			},
 		},
 		tags: [
@@ -50,7 +50,7 @@ const options = {
 			// },
 		],
 		schemes: ['http', 'https'],
-		host: `${constant.URI.BROKER_API_URI}`,
+		host: `${constant.API_URI}`,
 		basePath: '/api/v1',
 		securityDefinitions: {
 			Bearer: {

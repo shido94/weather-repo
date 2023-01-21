@@ -15,5 +15,9 @@ if (fs.existsSync(path.join(process.cwd(), `/.env.${Environment}`))) {
 module.exports = (function () {
 	return {
 		PORT: process.env.PORT,
+		API_URI: process.env.API_URI,
+		WEATHER_API_KEY: process.env.WEATHER_API_KEY,
+		WEATHER_URI: process.env.WEATHER_URI,
+		FORECAST_URI: process.env.FORECAST_URI,
 	};
 })();

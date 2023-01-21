@@ -1,5 +1,5 @@
 {
-  "name": "broker-to-broker",
+  "name": "weather-app",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -15,7 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "app-root-path": "^3.0.0",
-    "axios": "^0.26.0",
+    "axios": "^0.26.1",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
@@ -32,6 +32,7 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.20",
     "path": "^0.12.7",
+    "request": "^2.88.2",
     "swagger-jsdoc": "^6.1.0",
     "swagger-model-validator": "^3.0.21",
     "swagger-ui-express": "^4.3.0",

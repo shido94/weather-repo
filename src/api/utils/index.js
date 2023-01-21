@@ -5,7 +5,6 @@ const logger = require('./logger');
 const pagination = require('./pagination');
 const pick = require('./pick');
 const responseMessage = require('./response.message');
-const responseHandler = require('./responseHandler');
 const swagger = require('./swagger');
 
 module.exports = {
@@ -15,7 +14,6 @@ module.exports = {
 	logger,
 	pagination,
 	pick,
-	responseHandler,
 	responseMessage,
 	swagger,
 };

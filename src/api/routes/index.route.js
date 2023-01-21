@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const userRoutes = require('./user.route');
+const weatherRoutes = require('./weather.route');
 
-router.use('/users', userRoutes);
+router.use('/weathers', weatherRoutes);
 
 module.exports = router;

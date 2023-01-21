@@ -1,4 +1,4 @@
-const constant = require('./morgan');
+const morgan = require('./morgan');
 const environment = require('./environment');
 
-module.exports = { constant, environment };
+module.exports = { morgan, environment };

@@ -12,3 +12,21 @@ exports.sendSuccess = function (res, status, data = [], message) {
 		response: data,
 	});
 };
+
+exports.checkNextHit = function (data, limit) {
+	let finalResult = {};
+	let extendedLimit = limit + 1;
+	if (extendedLimit == data.length) {
+		data.pop(data.length);
+		finalResult = {
+			result: data,
+			nextHit: true,
+		};
+	} else {
+		finalResult = {
+			result: data,
+			nextHit: false,
+		};
+	}
+	return finalResult;
+};

@@ -1,3 +1,3 @@
-const userService = require('./user.service');
+const weatherService = require('./weather.service');
 
-module.exports = { userService };
+module.exports = { weatherService };
