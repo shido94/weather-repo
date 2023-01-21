@@ -2,12 +2,6 @@ const http = require('http');
 const { axiosHandler } = require('../handlers');
 const request = require('request');
 const { constant } = require('../utils');
-console.log(constant.WEATHER_API_KEY);
-/**
- * Get user by id
- * @param {ObjectId} id
- * @returns {Promise<User>}
- */
 
 const getWeatherData = (locations, type) =>
 	Promise.all(
@@ -36,9 +30,54 @@ const getCities = async (filter) => {
 		return response;
 	} catch (error) {
 		console.error(error);
+		throw error;
+	}
+};
+
+const getCityForecast = (locations, type, days) =>
+	Promise.all(
+		locations.map(
+			(value) =>
+				new Promise((resolve, reject) => {
+					const query = `${type}=${value}`;
+					const url = `${constant.WEATHER_URI}/forecast?${query}&appid=${constant.WEATHER_API_KEY}&cnt=${days}`;
+					return request.get(url, (err, data) => {
+						if (err) return reject(err);
+						return resolve(JSON.parse(data.body));
+					});
+				})
+		)
+	);
+
+const getCitiesForecast = async (filter) => {
+	try {
+		const cities = filter.city.split(',');
+		if (filter.type === 'code') {
+			filter.type = 'id';
+		} else {
+			filter.type = 'q';
+		}
+		const response = await getCityForecast(
+			cities,
+			filter.type,
+			filter.days
+		);
+
+		return response.map((cityData) => {
+			return {
+				city: cityData.city,
+				list: cityData.list.map((data) => {
+					return { dt: data.dt, weather: data.weather };
+				}),
+			};
+		});
+	} catch (error) {
+		console.error(error);
+		throw error;
 	}
 };
 
 module.exports = {
 	getCities,
+	getCitiesForecast,
 };

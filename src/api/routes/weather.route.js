@@ -13,15 +13,11 @@ const { weatherValidation } = require('../validations');
  *     produces:
  *       - application/json
  *     parameters:
- *     - name: Authorization
- *       in: header
  *     - name: type
  *       in: query
  *     - name: city
  *       in: query
  *     - name: limit
- *       in: query
- *     - name: page
  *       in: query
  *       description: Get All City Listing
  *     responses:
@@ -30,8 +26,36 @@ const { weatherValidation } = require('../validations');
  */
 router.get(
 	'/cities',
-	validate(weatherValidation.cityQuery),
+	validate(weatherValidation.cityWeatherQuery),
 	weatherController.getCities
+);
+
+/**
+ * @swagger
+ *  /weathers/forecast:
+ *   get:
+ *     tags:
+ *       - Users
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *     - name: type
+ *       in: query
+ *     - name: city
+ *       in: query
+ *     - name: days
+ *       in: query
+ *     - name: limit
+ *       in: query
+ *       description: Get All City Listing
+ *     responses:
+ *       200:
+ *         description: Return Message
+ */
+router.get(
+	'/forecast',
+	validate(weatherValidation.cityWeatherQuery),
+	weatherController.getCitiesForecast
 );
 
 module.exports = router;
